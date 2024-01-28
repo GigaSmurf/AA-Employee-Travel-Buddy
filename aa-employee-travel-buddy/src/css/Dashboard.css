@@ -1,0 +1,87 @@
+@import "~leaflet/dist/leaflet.css";
+
+/* Dashboard.css */
+
+.dashboard-container {
+    padding: 20px;
+}
+
+.leaflet-container {
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  
+}
+
+
+/* Dashboard.css */
+
+.flights-container {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.flights-container h2 {
+    text-align: center;
+    color: #333;
+}
+
+.flights-container ul {
+    list-style: none;
+    padding: 0;
+}
+
+.flights-container li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.flights-container li span {
+    flex-grow: 1; /* Allows the span to grow and fill available space */
+}
+
+.flights-container li:hover {
+    background-color: #eaeaea;
+}
+
+/* ... existing styles ... */
+
+.book-button {
+    margin-left: 10px;
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    height: 50px;
+    width: 100px;
+    
+}
+
+.book-button:hover {
+    background-color: #45a049;
+}
+
+.book-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.flights-container li span {
+    flex-grow: 1; /* Allows the span to grow and fill available space */
+    padding: 0 10px; /* Add padding to the left and right */
+}
+
+.departure-arrival-info {
+    display: block; /* Makes the span take the full width */
+    margin-top: 5px; /* Adds space above the departure-arrival info */
+}

@@ -40,4 +40,7 @@
     flex-direction: column;
     width: 30%;
     justify-content: center;
+    margin-top: 20px;
+    position: relative;
+    top: 70px
 }
