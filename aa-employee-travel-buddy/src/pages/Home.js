@@ -37,6 +37,22 @@ function Home() {
                         </button>
                     </Link>
                 </div>
+                <div className="footer">
+                    <div className="logos">
+                        <a href="https://github.com/GigaSmurf/AA-Employee-Travel-Buddy" target="_blank" rel="noopener noreferrer">
+                            <img src="/githublogo.svg" alt="GitHub" />
+                        </a>
+                        <a href="https://devpost.com/software/610304?ref_content=existing_user_added_to_software_team&ref_feature=portfolio&ref_medium=email&utm_campaign=software&utm_content=added_to_software_team&utm_medium=email&utm_source=transactional#app-team" target="_blank" rel="noopener noreferrer">
+                            <img src="/devpostlogo.svg" alt="Devpost" />
+                        </a>
+                    </div>
+                    <div className="credits">
+                        Made by 
+                        <a href="https://www.linkedin.com/in/dylansyahputra" target="_blank" rel="noopener noreferrer">Dylan</a>, 
+                        <a href="https://www.linkedin.com/in/gabriel-traslavina" target="_blank" rel="noopener noreferrer">Gabriel</a>, and 
+                        <a href="https://www.linkedin.com/in/jocelyndai" target="_blank" rel="noopener noreferrer">Jocelyn</a>.
+                    </div>
+                </div>
             </div>
         </div>
     );
