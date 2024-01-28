@@ -1,6 +1,8 @@
 // Gabe
 import './StandbyPredictor.css'
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+
 
 function StandbyPredictor() {
 
@@ -40,7 +42,8 @@ function StandbyPredictor() {
 
 
     return <div className='Main'>
-        <h1>Please fill out the below fields to of your desired flight to see what our analytics show will be available</h1>
+
+        <h1 className='info'>Please fill out the below fields to of your desired flight to see what our analytics show will be available</h1>
         <form onSubmit={handleSubmit}>
         <div className='Form Background'>
             
@@ -130,9 +133,7 @@ function StandbyPredictor() {
 
         {randomNumber !== null && (
         <div>
-          
-          
-          <p>Random Number (0-23 with bias towards 0): {randomNumber}</p>
+          <p>Projected number of seats on flight: {randomNumber}</p>
         </div>
       )}
     

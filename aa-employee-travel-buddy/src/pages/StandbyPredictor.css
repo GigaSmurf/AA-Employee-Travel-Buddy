@@ -32,3 +32,12 @@
     width: 400px;
     border-radius: 20%;
 }
+
+
+.info{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 30%;
+    justify-content: center;
+}
