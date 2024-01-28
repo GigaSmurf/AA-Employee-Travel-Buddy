@@ -59,7 +59,7 @@ function Startup() {
     return (
         <div style={{ height: '100vh', width: '100vw' }}>
             <Canvas 
-                style={{ background: 'lightblue' }}
+                style={{ background: '#afc4da' }}
                 camera={{ position: [50, 75, 50], fov: 50 }}>
                 <ambientLight intensity={0.5} />
                 <spotLight position={[10, 15, 10]} angle={0.3} />
