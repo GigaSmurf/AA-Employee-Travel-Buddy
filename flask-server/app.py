@@ -49,6 +49,11 @@ def find_connecting_flight(graph, start, goal):
         visited.add(current_node)
 
         for neighbor, distance, flight_number, seats in graph.get(current_node, []):
+            # Check if the destination is the goal and there are standby seats available
+            if neighbor == goal and seats > 0:
+                return {"shortest_path": path + [current_node, neighbor],
+                        "flight_numbers": [flight_number],
+                        "standby_seats": [seats]}
             queue.append((neighbor, path + [current_node]))
 
     return None  # No connecting path found
@@ -65,9 +70,9 @@ def a_star(graph, start, goal):
 
         if current_node == goal:
             return {
-                "shortest_path": path + [current_node],
-                "flight_numbers": flight_numbers,
-                "standby_seats": standby_seats
+                "shortest_path": [],
+                "flight_numbers": [],
+                "standby_seats": []
             }
 
         if current_node in closed_set:
@@ -77,11 +82,20 @@ def a_star(graph, start, goal):
 
         for neighbor, distance, flight_number, seats in graph.get(current_node, []):
             new_cost = cost + distance
-            heapq.heappush(open_set, (new_cost, neighbor, path + [current_node], flight_numbers + [flight_number], standby_seats + [seats]))
+            new_path = path + [current_node]
+            new_flight_numbers = flight_numbers + [flight_number]
+            new_standby_seats = standby_seats + [seats]
 
-    connecting_result = find_connecting_flight(graph, start, goal)
-    if connecting_result is not None:
-        return connecting_result
+            # If neighbor is the goal, check for available standby seats
+            if neighbor == goal and seats > 0:
+                return {
+                    "shortest_path": new_path + [neighbor],
+                    "flight_numbers": new_flight_numbers,
+                    "standby_seats": new_standby_seats
+                }
+
+            # Otherwise, add to the open set for further exploration
+            heapq.heappush(open_set, (new_cost, neighbor, new_path, new_flight_numbers, new_standby_seats))
 
     return {
         "shortest_path": None,
@@ -92,8 +106,8 @@ def a_star(graph, start, goal):
 @app.route('/api/get-shortest-path')
 def get_shortest_path():
     date_param = request.args.get('date')
-    start_airport = request.args.get('origin') 
-    goal_airport = request.args.get('destination') 
+    start_airport = request.args.get('origin')
+    goal_airport = request.args.get('destination')
 
     print(f"Received request with date={date_param}, origin={start_airport}, destination={goal_airport}")
 
@@ -104,14 +118,24 @@ def get_shortest_path():
     print(f"Retrieved flight data: {flight_data}")
 
     flight_graph = construct_flight_graph(flight_data)
-    
+
     print(f"Constructed flight graph: {flight_graph}")
 
     shortest_path_result = a_star(flight_graph, start_airport, goal_airport)
 
     print(f"Shortest path result: {shortest_path_result}")
 
-    return jsonify(shortest_path_result)
+    # Handle missing keys
+    formatted_result = {
+        "shortest_path": shortest_path_result.get("shortest_path", []),
+        "flight_numbers": shortest_path_result.get("flight_numbers", []),
+        "standby_seats": shortest_path_result.get("standby_seats", [])
+    }
+
+    return jsonify(formatted_result)
+
+
+
 
 
 if __name__ == '__main__':
