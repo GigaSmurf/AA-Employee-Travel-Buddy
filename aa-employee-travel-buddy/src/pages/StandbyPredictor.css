@@ -1,0 +1,34 @@
+.Main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    width: auto;
+    background: linear-gradient(45deg, #086591 20%, #CAD1D7 70%, #b53126 100%);
+}
+
+
+.Main .Form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: rgba(211,211,211,0.15);
+    height: 100%;
+    width: 400px;
+    border-radius: 20%;
+    margin-bottom: auto;
+}   
+
+
+.Output{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: rgba(211,211,211,0.15);
+    height: 100%;
+    width: 400px;
+    border-radius: 20%;
+}
