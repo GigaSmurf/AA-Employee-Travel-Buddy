@@ -8,6 +8,7 @@ body {
     flex-direction: column;
     height: 100vh;
     background-color:#afc4da;
+    
 }
 
 .upper-half {
@@ -77,8 +78,8 @@ body {
     background-color: #f0f0f0;
     color: black;
     font-size: 1.2em;
-    width: 300px; /* Increased width */
-    height: 150px; /* Increased height */
+    width: 350px; /* Increased width */
+    height: 230px; /* Increased height */
     position: relative;
     overflow: hidden;
     transition: all 0.3s ease-in-out; /* Smooth transition for all changes */
@@ -125,4 +126,63 @@ body {
     text-decoration: none; /* Remove underline */
     color: inherit; /* Inherit the color from the parent element */
     /* Add any other styles you need for your text */
+}
+
+
+/* FOOTER */
+.footer {
+    width: 100%;
+    padding: 15px;
+    text-align: center;
+    background-color: white; /* Footer background color */
+    color: white;
+    font-size: 0.9em;
+    margin-top: auto;
+}
+
+.footer .logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Space between logos */
+    margin-bottom: 5px; /* Space above credits */
+}
+
+.footer .logos img {
+    height: 30px; 
+}
+
+.footer .credits {
+    margin-top: 10px;
+    color: black;
+}
+
+.footer .credits a {
+    color: #fff; /* Adjust link color as needed */
+    margin-left: 3.5px; 
+    text-decoration: none; /* Remove underline */
+    color: blue;
+}
+
+
+@media (max-width: 414px) {
+    .button-container button {
+        width: 150px; /* Reduced width for smaller screens */
+        height: 100px; /* Reduced height for smaller screens */
+        font-size: 0.8em; 
+        padding: 10px;
+        display: flex; /* Using flexbox for layout */
+        flex-direction: column; /* Stack items vertically */
+        justify-content: center; /* Center items vertically */
+        align-items: center; /* Center items horizontally */
+    }
+
+    .button-container button .button-title {
+        /* Ensure the title remains centered */
+        text-align: center;
+    }
+
+    .button-container button .button-description {
+        font-size: 0.7em; 
+    }
 }
